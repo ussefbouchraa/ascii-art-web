@@ -1,11 +1,17 @@
+body{
 
-.container {
-  background-color: #000000;
-  overflow: hidden;
   margin: 0%; 
   padding:0%; 
   width :100%;
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.container {
+
+  padding-right: 10px;
   overflow: hidden;  
+  display: grid;
 }
 
 *{
@@ -29,12 +35,14 @@
   animation: mv1 8s infinite ;
    left: 0;
   top: 0; 
+
 }
 .light2 {
   background: #F472B6; 
   animation: mv2 10s infinite ;
   right: 0;
   bottom: 0;
+
 }
 /* end background */
 
@@ -71,6 +79,8 @@
   flex-direction: column;
   margin: 10px;
   overflow: hidden;
+  position: relative;
+  z-index: 2;
 }
 
 .form div {
@@ -117,18 +127,20 @@
   margin-top: 15px;
   font-size: large;
   font-weight: bold;
-
+  float: none;
 }
 
 .btn:hover {
   cursor: pointer;
   background: #403c44;
   color: white;
+  animation-play-state: paused;
   
 }
 .btn:active {
   transform: translateY(2px);
   background: #555454;
+  animation-play-state: paused;
 }
 
 /* ------end of section 1 */
@@ -147,7 +159,7 @@
 
 .output{
 
-  width: 98%;
+  width: 99%;
   height: 100%;
   border-radius: 5px;
   border-color: azure;
@@ -163,7 +175,6 @@
 
 
 /* end section2 */
-
 
 
 
@@ -201,24 +212,20 @@
 
 
 
-@media (min-width:1800px) {
+/* @media (min-width:1800px) {
   .form div input {
     width: 70.6%;  
   }
-}
-/* @media (width <=390px)   {
-  .container{
-    width: 80%;
-    background-color: rgb(140, 215, 0);
-    }
-    .section2 {
-      width: 90%;
+} */
+
+
+ @media (width <= 400px)   {
+  .nav{
+      font-size: 13px;
       }
-      
-      } */
-      /* 
+    }
     
-@media (width >= 500px) {
+/* @media (width >= 500px) {
   .container{
     width: 99.7%;
     background-color: red;
@@ -232,5 +239,5 @@
     }
     }
 
-        
- */
+         */
+ 

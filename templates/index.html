@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="ussefbouchraa">
   <meta name="keywords" content="ascii-art-web">
-  <meta name ="description" content="????">
 
   <title>test animation</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="container">
+<body >
+    <code class="container">
+
+  
     <div class="background-light light1"></div>
     <div class="background-light light2"></div>
     <nav class="nav">ASCCI-ART-WEB</nav>
     <section class="section" style="animation: mv0 4s;">
         <form class="form">  
-            <div><label >INPUT:</label> <input type="text" placeholder=".........."></div>
+            <!-- <form class="form" action="/" method="post">   -->
+                <div><label >INPUT:</label> <input type="text" required placeholder=".........."></div>
             <div>
                 <label>BANNER:</label> 
                 <select name="Files" >
@@ -26,13 +29,14 @@
                     <option value="Thinkertoy">Thinkertoy</option>
                 </select>
             </div>
-            <button class="btn" > Run</button>
+            <button class="btn" type="submit" > Run</button>
         </form>
 </section>
 
 <section class="section section2">
-    <textarea class="output" ></textarea>
+    <textarea class="output" readonly > {{.}}</textarea>
 </section>
 
+    </code>
     </body>
 </html>
