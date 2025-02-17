@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="ussefbouchraa">
+
+  <title>ASCII-ART-WEB</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body >
+    <code class="container">
+
+    <div class="background-light light1"></div>
+    <div class="background-light light2"></div>
+
+    <nav class="nav">ASCCI-ART-WEB</nav>
+        <section class="section" style="animation: mv0 4s;">
+            <!-- <form class="form">   -->
+                <form class="form"  method="POST" >  
+                    <div><label >INPUT:</label> <input type="text" name="inp1"  required  autofocus ></div>
+                <div>
+                    <label>BANNER:</label> 
+                    <select name="Files">
+                        <option value="standard">Standard</option>
+                        <option value="shadow">Shadow</option>
+                        <option value="thinkertoy">Thinkertoy</option>
+                    </select>
+                </div>
+                <button class="btn" type="submit" value="submit" > Run</button>
+            </form>
+        </section>
+        
+        <section class="section section2">
+        <textarea class="output" readonly>{{.Result}}</textarea>
+    </section>
+
+  </code>
+</body>
+</html>
+
+<!-- //onclick="window.href="'\'"
+//  <script>alert('you have been pwned')</script>! -->

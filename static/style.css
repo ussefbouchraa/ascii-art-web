@@ -9,9 +9,11 @@ body{
 
 .container {
 
-  padding-right: 10px;
-  overflow: hidden;  
+  padding-right: 9px;
   display: grid;
+  align-self: center;
+  align-items: center;
+  align-content: center;
 }
 
 *{
