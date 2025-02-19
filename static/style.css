@@ -71,9 +71,9 @@ body{
     margin: auto;
     border-radius: 15px;
     padding: 10px;
-    margin-top: 3%;
+    margin-top: 4%;
     box-shadow: 0px 0px 10px 5px rgb(58, 53, 57);
-    overflow:hidden;
+    /* overflow:hidden; */
   }
 
 .form{
@@ -129,7 +129,6 @@ body{
   margin-top: 15px;
   font-size: large;
   font-weight: bold;
-  float: none;
 }
 
 .btn:hover {
@@ -148,13 +147,11 @@ body{
 /* ------end of section 1 */
 
 
-
-
-
 /* start section 2 */
 .section2{
   width: 100%;
-  height: 300px; border-radius: 0%;
+  height: 220px;
+   border-radius: 0%;
   padding-right:15px;
 
 }
@@ -168,11 +165,11 @@ body{
   border: none;
   background-color: #2c2c2c;
   color: rgb(255, 255, 255);
-  font-size: large;
-  resize: none;
-  overflow:scroll;
-  scroll-behavior: smooth;
-  line-height: 1.7;
+
+  overflow-x: scroll;
+  overflow-y: hidden; 
+  white-space: pre; /* Prevent text wrapping */
+  word-wrap: normal; /* Ensure long words don't break */
 }
 
 
@@ -185,8 +182,8 @@ body{
     transform: translate(0%, -100%);
     transition: 2s;
   }
-  50%{
-    transform: translate(0%, 40%);
+  60%{
+    transform: translate(0%, 31.7%);
     transition: 2s;
   }
 
@@ -214,32 +211,9 @@ body{
 
 
 
-/* @media (min-width:1800px) {
-  .form div input {
-    width: 70.6%;  
-  }
-} */
-
-
  @media (width <= 400px)   {
   .nav{
       font-size: 13px;
       }
     }
     
-/* @media (width >= 500px) {
-  .container{
-    width: 99.7%;
-    background-color: red;
-    }
-    }
-    
-@media (width >= 800px)  {
-  .container{
-    width: 100%;
-    background-color: rgb(46, 22, 166);
-    }
-    }
-
-         */
- 

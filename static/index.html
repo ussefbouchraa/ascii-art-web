@@ -17,7 +17,6 @@
 
     <nav class="nav">ASCCI-ART-WEB</nav>
         <section class="section" style="animation: mv0 4s;">
-            <!-- <form class="form">   -->
                 <form class="form"  method="POST" >  
                     <div><label >INPUT:</label> <input type="text" name="inp1"  required  autofocus ></div>
                 <div>
@@ -25,7 +24,9 @@
                     <select name="Files">
                         <option value="standard">Standard</option>
                         <option value="shadow">Shadow</option>
-                        <option value="thinkertoy">Thinkertoy</option>
+                        <option value="thinkertoy">Thinkertoy</option>                        <option value="shadow">Shadow</option>
+                        <option value="bubble">Bubble</option>
+                        <option value="soft">Soft</option> 
                     </select>
                 </div>
                 <button class="btn" type="submit" value="submit" > Run</button>
@@ -33,7 +34,7 @@
         </section>
         
         <section class="section section2">
-        <textarea class="output" readonly>{{.Result}}</textarea>
+        <textarea class="output"  disabled >{{.Result}}</textarea>
     </section>
 
   </code>
