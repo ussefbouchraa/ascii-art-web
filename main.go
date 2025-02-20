@@ -9,31 +9,31 @@ import (
 
 )
 
-
 type Data struct {
 	Result string
 }
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {  
 	
-	tmpl, err := template.ParseFiles("static/index.html")
-	if err != nil{
-		http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+	if r.URL.Path != "/"{
+		http.Error(w, "Not Found", http.StatusNotFound)
 		return
 	}
 
-	if r.URL.Path != "/"{
-		http.Error(w, "404 not found.", http.StatusNotFound)
+	tmpl, err := template.ParseFiles("static/index.html")
+	if err != nil{
+		http.Error(w, "Not Found", http.StatusNotFound)
 		return
 	}
 	
 	if r.Method == http.MethodGet {
-		tmpl.Execute(w, Data{Result: ""})
+		if err := tmpl.Execute(w, Data{Result: ""}); err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
 		return
 	}
 
 	if r.Method == http.MethodPost {
-		
 		input := r.FormValue("inp1")
 		banner := r.FormValue("Files")
 
@@ -42,11 +42,12 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 			return 
 		}
 
-		tmpl.Execute(w, Data{Result: A.Storing(input)})
+		if err := tmpl.Execute(w, Data{Result: A.Storing(input)}); err != nil {
+			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+		}
 		return
 	}
-	http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
-	
+	http.Error(w, "Bad Request", http.StatusBadRequest)	
 }
 
 func main() {
@@ -55,7 +56,7 @@ func main() {
 	http.HandleFunc("/", HandleRequest)
 	
 	fmt.Println("Server running on port 8080")
-	if err:= http.ListenAndServe("127.0.0.1:8080", nil) ; err != nil{
+	if err:= http.ListenAndServe(":8080", nil) ; err != nil{
 		log.Fatal(err)
 	}
 }
