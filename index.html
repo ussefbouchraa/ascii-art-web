@@ -7,6 +7,7 @@
 
   <title>ASCII-ART-WEB</title>
   <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="static/icon.png" sizes="16x16" />
 </head>
 
 <body >
@@ -17,8 +18,8 @@
 
     <nav class="nav">ASCCI-ART-WEB</nav>
         <section class="section" style="animation: mv0 4s;">
-                <form class="form"  method="POST" >  
-                    <div><label >INPUT:</label> <input type="text" name="inp1"  required  autofocus ></div>
+                <form class="form" action="/" method="POST" >  
+                    <div><label >INPUT:</label> <textarea name="inp1" maxlength="400" required autofocus> </textarea></div>
                 <div>
                     <label>BANNER:</label> 
                     <select name="Files">
@@ -29,15 +30,16 @@
                         <option value="soft">Soft</option> 
                     </select>
                 </div>
-                <button class="btn" type="submit" value="submit" > Run</button>
+                <button class="btn" type="submit"> Run</button>
             </form>
         </section>
         
         <section class="section section2">
-        <textarea class="output" disabled >{{.Result}}</textarea>
+        <pre class="output">{{.Result}}</pre>
     </section>
 
   </code>
 </body>
+<footer class="footer"><p>Created By Shark & Spites</p></footer>
 </html>
 

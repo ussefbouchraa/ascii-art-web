@@ -10,44 +10,51 @@ import (
 )
 
 type Data struct {
+
 	Result string
 }
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {  
 	
 	if r.URL.Path != "/"{
-		http.Error(w, "Not Found", http.StatusNotFound)
+		http.Error(w, "404 Not Found", http.StatusNotFound)
 		return
 	}
 
-	tmpl, err := template.ParseFiles("static/index.html")
+	tmpl, err := template.ParseFiles("index.html")
 	if err != nil{
-		http.Error(w, "Not Found", http.StatusNotFound)
+		http.Error(w, "500 Internal Server Error", http.StatusInternalServerError)
 		return
 	}
 	
 	if r.Method == http.MethodGet {
 		if err := tmpl.Execute(w, Data{Result: ""}); err != nil {
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			http.Error(w, "500 Internal Server Error", http.StatusInternalServerError)
 		}
 		return
 	}
 
+	
 	if r.Method == http.MethodPost {
 		input := r.FormValue("inp1")
 		banner := r.FormValue("Files")
 
+		if len(input) > 300 {
+			http.Error(w, "400 Bad Request", http.StatusBadRequest)	
+			return
+	}
+
 		if !A.InitMap(banner){
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			http.Error(w, " 400 Bad Request", http.StatusBadRequest)
 			return 
 		}
 
 		if err := tmpl.Execute(w, Data{Result: A.Storing(input)}); err != nil {
-			http.Error(w, "Internal Server Error", http.StatusInternalServerError)
+			http.Error(w, "500 Internal Server Error", http.StatusInternalServerError)
 		}
 		return
 	}
-	http.Error(w, "Bad Request", http.StatusBadRequest)	
+	http.Error(w, "400 Bad Request", http.StatusBadRequest)	
 }
 
 func main() {
@@ -55,7 +62,7 @@ func main() {
 
 	http.HandleFunc("/", HandleRequest)
 	
-	fmt.Println("Server running on port 8080")
+	fmt.Println("Server running on port http://localhost:8080")
 	if err:= http.ListenAndServe(":8080", nil) ; err != nil{
 		log.Fatal(err)
 	}
