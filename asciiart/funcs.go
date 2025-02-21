@@ -3,6 +3,7 @@ package asciiart
 import (
 	"bufio"
 	"os"
+	S "strings"
 )
 
 var (
@@ -56,19 +57,37 @@ func InsertValue(scanner *bufio.Scanner) [8]string {
 	return ArtValue
 }
 
+func IsOnlyNewLine(str []string) bool {
 
-func Storing(inp string) string{
+	for _, v := range str {
+		if v != "" {
+			return false
+		}
+	}
+	return true
+}
+
+func Storing(inp string) string {
 	res := ""
+	inp = S.Trim(inp, " ")
+	spl := S.Split(inp, "\r\n")
 
-	for _, val := range inp {
-		for i := 0; i < 8; i++ {
-			lines[i] += _map[int(val)][i]
+	if IsOnlyNewLine(spl) {
+		return ""
+	}
+	
+	for _, val := range spl {
+		for _, v := range val {
+			for i := 0; i < 8; i++ {
+				lines[i] += _map[int(v)][i]
 			}
 		}
-
 		for i := 0; i < 8; i++ {
 			res += lines[i] + "\n"
 			lines[i] = ""
 		}
+	}
+
 	return res
 }
+

@@ -1,12 +1,12 @@
 package main
 
 import (
+	A "asciiartweb/asciiart"
+	F "fmt"
 	"html/template"
 	"log"
 	"net/http"
-	"fmt"
-	A "asciiartweb/asciiart"
-
+	"os"
 )
 
 type Data struct {
@@ -58,11 +58,14 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	args := os.Args[1:]
+	if len(args) != 0 {	os.Stderr.WriteString("Err: Invalid Usage [go run .]\n"); return }
+
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
 	http.HandleFunc("/", HandleRequest)
 	
-	fmt.Println("Server running on port http://localhost:8080")
+	F.Println("Server running on port http://localhost:8080")
 	if err:= http.ListenAndServe(":8080", nil) ; err != nil{
 		log.Fatal(err)
 	}
