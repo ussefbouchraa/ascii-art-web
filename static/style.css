@@ -17,12 +17,10 @@ body{
   overflow: hidden;
   display: grid;
   flex-wrap: wrap;
-  border: 1px solid red;
   height: auto;
   align-self: center;
   align-items: center;
   align-content: center;
-  max-width: 100%;
 }
 
 
@@ -172,7 +170,7 @@ body{
   overflow: hidden;
   display: flex;
   flex: 1;
-  height: 250px;
+  height: 300px;
   border-radius: 0%;
   background-color: rgb(117, 106, 106);
   padding: 10px;
@@ -197,8 +195,8 @@ body{
 .footer{
   display: flex;
   justify-content: center;
-  margin-top: 4%;
-  min-height: 50px;
+  margin-top: 3%;
+  max-height: 50px;
   text-decoration: underline;
   color: rgb(87, 80, 80);
   box-shadow: 1px 0px 10px  rgb(15, 15, 15);

@@ -2,6 +2,7 @@ package asciiart
 
 import (
 	"bufio"
+	"fmt"
 	"os"
 	S "strings"
 )
@@ -69,14 +70,17 @@ func IsOnlyNewLine(str []string) bool {
 
 func Storing(inp string) string {
 	res := ""
-	inp = S.Trim(inp, " ")
-	spl := S.Split(inp, "\r\n")
+	inp = S.Replace(S.Trim(inp, " "),"\r\n","\n",-1)
+	
+	spl := S.Split(inp, "\n")
+	fmt.Println(spl)
 
 	if IsOnlyNewLine(spl) {
 		return ""
 	}
 	
 	for _, val := range spl {
+	if val == "" {continue }
 		for _, v := range val {
 			for i := 0; i < 8; i++ {
 				lines[i] += _map[int(v)][i]
@@ -87,7 +91,6 @@ func Storing(inp string) string {
 			lines[i] = ""
 		}
 	}
-
 	return res
 }
 
