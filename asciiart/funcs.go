@@ -2,7 +2,6 @@ package asciiart
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 	S "strings"
 )
@@ -73,8 +72,6 @@ func Storing(inp string) string {
 	inp = S.Replace(S.Trim(inp, " "),"\r\n","\n",-1)
 	
 	spl := S.Split(inp, "\n")
-	fmt.Println(spl)
-
 	if IsOnlyNewLine(spl) {
 		return ""
 	}
