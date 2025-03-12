@@ -15,7 +15,6 @@ type Data struct {
 }
 
 var(
-
 	tmpl, _ = template.ParseFiles("index.html")
 	tmplStatus, _ = template.ParseFiles("index1.html")
 )
@@ -57,7 +56,8 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 
 func staticFileServer(w http.ResponseWriter, r *http.Request) {
 	url := r.URL.Path
-
+	if tmplStatus == nil  {http.Error(w, "500 Internal Server Error", http.StatusInternalServerError); return }
+	
 	switch url {
 	case "/static/style.css", "/static/icon.png":
 		http.StripPrefix("/static/", http.FileServer(http.Dir("static"))).ServeHTTP(w, r)
