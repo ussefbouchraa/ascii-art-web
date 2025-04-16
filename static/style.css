@@ -15,12 +15,10 @@ body{
 
 .container {
   overflow: hidden;
-  display: grid;
-  flex-wrap: wrap;
   height: auto;
-  align-self: center;
   align-items: center;
   align-content: center;
+  border: none;
 }
 
 
